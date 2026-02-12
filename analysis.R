@@ -1,3 +1,8 @@
+library(ggplot2)
+library(broom)
+
+
+
 set.seed(2026)
 
 n <- 120
@@ -40,5 +45,38 @@ model <- glm(complication ~ age + disease_duration + dbs_target,
 summary(model)
 
 # Odds ratios
-exp(cbind(OR = coef(model), confint(model)))
+exp(cbind(
+  OR = coef(model),
+  confint.default(model)
+))
 
+
+library(ggplot2)
+
+ggplot(dbs_data, aes(x = age, fill = factor(complication))) +
+  geom_histogram(binwidth = 5, position = "dodge") +
+  labs(title = "Age Distribution by Complication Status",
+       fill = "Complication") +
+  theme_minimal()
+
+ggsave("age_complication_plot.png", width = 6, height = 4)
+
+# Logistic regression model
+
+
+tidy_model <- tidy(model, conf.int = TRUE, exponentiate = TRUE)
+tidy_model
+
+
+tidy_model <- tidy_model[-1, ]  # remove intercept
+
+ggplot(tidy_model, aes(x = term, y = estimate, ymin = conf.low, ymax = conf.high)) +
+  geom_pointrange() +
+  geom_hline(yintercept = 1, linetype = "dashed") +
+  coord_flip() +
+  labs(title = "Predictors of DBS Complications",
+       y = "Odds Ratio (95% CI)",
+       x = "") +
+  theme_minimal()
+
+ggsave("forest_plot.png", width = 6, height = 4)
