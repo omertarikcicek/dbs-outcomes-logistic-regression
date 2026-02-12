@@ -22,6 +22,6 @@ Increasing age and longer disease duration were associated with higher probabili
 
 Author
 
-Your Name
-Medical Student
-ORCID: (your link)
+Ömer Tarık Çiçek
+UNIMI IMS Medical Student
+ORCID: 0009-0003-0818-0560
