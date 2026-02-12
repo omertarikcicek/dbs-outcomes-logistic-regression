@@ -9,13 +9,13 @@ ORCID: 0009-0003-0818-0560
 
 Project Overview
 
-This project simulates a clinical dataset of patients undergoing Deep Brain Stimulation (DBS) and evaluates predictors of postoperative complications using logistic regression modeling.
+This project simulates a clinical dataset of patients undergoing Deep Brain Stimulation (DBS) and evaluates predictors of postoperative complications using logistic regression modeling in R.
 
-The objective was to demonstrate reproducible clinical data simulation, regression modeling, and visualization workflows in R.
+The goal is to demonstrate reproducible clinical data simulation, regression modeling, and visualization workflows.
 
 Methods
 
-Simulated cohort: n = 120 DBS patients
+Simulated Cohort: n = 120 DBS patients
 
 Variables included:
 
@@ -33,37 +33,57 @@ Improvement percentage
 
 Postoperative complication (binary outcome)
 
-Logistic regression was performed to assess predictors of complications.
+Analyses performed:
 
-Odds ratios (OR) with 95% Wald confidence intervals were calculated.
+Logistic regression to assess predictors of complications
 
-Key Findings (Simulated Data)
+Calculation of odds ratios (OR) with 95% Wald confidence intervals
 
-Increasing age showed a trend toward higher complication risk.
+Model performance evaluation using ROC/AUC
 
-Longer disease duration showed moderate association with complications.
+Multicollinearity check (VIF)
 
-DBS target (STN vs GPi) showed no statistically strong effect in this simulation.
+10-fold cross-validation
 
-Tools Used
+Binned calibration plot
 
-R
+Automated clinical interpretation
+
+Tools and Packages:
+
+R (version ≥ 4.5.2)
 
 ggplot2
 
 broom
 
-Logistic regression (glm, binomial family)
+car
+
+caret
+
+pROC
+
+dplyr
+
+Key Findings (Simulated Data)
+
+Age: Slight trend toward higher complication risk (OR 1.04 per year, 95% CI 0.98–1.11, p = 0.17)
+
+Disease duration: Slight inverse association (OR 0.90, 95% CI 0.78–1.04, p = 0.16)
+
+DBS target (STN vs GPi): No statistically meaningful effect (OR 0.74, 95% CI 0.26–2.10, p = 0.57)
+
+Note: This is simulated data; results are for methodological demonstration purposes only.
 
 Reproducibility
 
 All analyses can be reproduced by running analysis.R.
-The simulated dataset and exported figures are included.
+The simulated dataset (dbs_simulated_data.csv) and exported figures are included in the project folder.
 
 Interpretation of Results
 
-In this simulated dataset, increasing age showed a modest increase in complication odds (OR 1.04 per year, 95% CI 0.98–1.11, p = 0.17).
-Disease duration demonstrated a slight inverse association (OR 0.90, 95% CI 0.78–1.04, p = 0.16).
-DBS target (STN vs GPi) showed no statistically meaningful association with complications (OR 0.74, 95% CI 0.26–2.10, p = 0.57).
+Odds ratios >1 indicate increased risk; <1 indicate reduced risk.
 
-As this is simulated data, results are for methodological demonstration purposes only.
+Automated interpretation provides clinical-style outputs for each predictor with statistical significance labeling.
+
+This workflow demonstrates a full R-based logistic regression pipeline for clinical research simulation.
