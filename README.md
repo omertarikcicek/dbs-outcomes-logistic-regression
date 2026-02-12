@@ -59,3 +59,11 @@ Reproducibility
 
 All analyses can be reproduced by running analysis.R.
 The simulated dataset and exported figures are included.
+
+Interpretation of Results
+
+In this simulated dataset, increasing age showed a modest increase in complication odds (OR 1.04 per year, 95% CI 0.98–1.11, p = 0.17).
+Disease duration demonstrated a slight inverse association (OR 0.90, 95% CI 0.78–1.04, p = 0.16).
+DBS target (STN vs GPi) showed no statistically meaningful association with complications (OR 0.74, 95% CI 0.26–2.10, p = 0.57).
+
+As this is simulated data, results are for methodological demonstration purposes only.
