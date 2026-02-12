@@ -42,7 +42,17 @@ model <- glm(complication ~ age + disease_duration + dbs_target,
              data = dbs_data,
              family = binomial)
 
-summary(model)
+cat("\n--- Logistic Regression Summary ---\n")
+print(summary(model))
+
+cat("\n--- P-values ---\n")
+print(coef(summary(model))[,4])
+
+p_values <- coef(summary(model))[,4]
+
+cat("\n--- P-values for Predictors ---\n")
+print(round(p_values, 4))
+
 
 # Odds ratios
 exp(cbind(
@@ -63,8 +73,11 @@ ggsave("age_complication_plot.png", width = 6, height = 4)
 
 # Logistic regression model
 
+tidy_model <- tidy(model,
+                   conf.int = TRUE,
+                   conf.method = "wald",
+                   exponentiate = TRUE)
 
-tidy_model <- tidy(model, conf.int = TRUE, exponentiate = TRUE)
 tidy_model
 
 
