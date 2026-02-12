@@ -75,6 +75,16 @@ DBS target (STN vs GPi): No statistically meaningful effect (OR 0.74, 95% CI 0.2
 
 Note: This is simulated data; results are for methodological demonstration purposes only.
 
+Methodological Strength & Validation
+
+To ensure the robustness and clinical reliability of the model, the following rigorous statistical steps were implemented:
+
+    Pilot-Scale Cohort (n = 120): A sample size of 120 was chosen to simulate a realistic clinical pilot study, providing sufficient power for multivariate logistic regression without overfitting.
+
+    10-Fold Cross-Validation: To assess the model's generalizability and prevent overfitting, the dataset was split into 10 folds, ensuring that the predictive performance is consistent across different patient subsets.
+
+    Binned Calibration Plot: Beyond simple accuracy (AUC), the model’s reliability was evaluated using binned calibration plots to compare predicted probabilities against actual observed outcomes, ensuring the model is well-calibrated for clinical decision-making.
+
 Reproducibility
 
 All analyses can be reproduced by running analysis.R.
